@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ギャルAIチャット💖</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="layout">
+    <div class="left-panel">
+      <img id="gal-image" src="{{ url_for('static', filename='gal_greeting.png') }}" class="gal-image" alt="ギャル" />
+    </div>
+
+    <div class="right-panel">
+      <h2 class="text-center mb-3">ギャルAIと一緒に勉強しよ💖</h2>
+
+      <!--  タブ切り替えボタン -->
+      <div class="tab-bar">
+        <button class="tab-button active" data-tab="chat-tab">💬 チャット</button>
+        <button class="tab-button" data-tab="quiz-tab">📝 練習問題</button>
+      </div>
+
+      <!--  チャット画面 -->
+      <div id="chat-tab" class="tab-content active">
+        <div class="chat-container">
+          <!-- PDFアップロード -->
+          <form id="upload-form">
+            <div class="mb-3">
+              <input class="form-control" type="file" name="pdf" id="pdf" accept="application/pdf" required />
+            </div>
+            <button type="submit" class="btn btn-danger w-100">ギャルに学習させる💅</button>
+          </form>
+
+          <!-- 吹き出しログ -->
+          <div class="chat-log mt-4" id="chat-log"></div>
+
+          <!-- 質問フォーム -->
+          <form id="question-form" class="chat-input-form mt-4">
+            <input
+              type="text"
+              id="user-question"
+              placeholder="ギャルに質問しよ💖"
+              required
+              class="chat-input"
+            />
+            <button type="submit" class="chat-submit">送信💌</button>
+          </form>
+        </div>
+      </div>
+
+      <!--  練習問題画面 -->
+      <div id="quiz-tab" class="tab-content">
+        <div id="quiz-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

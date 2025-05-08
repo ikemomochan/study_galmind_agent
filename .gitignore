@@ -1,0 +1,14 @@
+# 秘密ファイルとかアップしちゃダメなやつ
+.env
+__pycache__/
+*.pyc
+
+# ログとかアップロードファイルとか
+uploads/
+vectorstore/
+conversation_log.json
+
+# OSとかエディタのゴミ
+.DS_Store
+*.swp
+.vscode/

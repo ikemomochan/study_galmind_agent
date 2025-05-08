@@ -1,0 +1,260 @@
+/* static/style.css */
+body {
+    margin: 0;
+    font-family: 'Yu Gothic', sans-serif;
+    background: linear-gradient(135deg, #ffe4f7, #fff0f5);
+    color: #333;
+  }
+  
+  .layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .left-panel {
+    width: 35%;
+    background: linear-gradient(180deg, #ffe0f0, #ffd1ec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-right: 3px solid #ff9fcf;
+  }
+  
+  .gal-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.4);
+    transition: transform 0.3s ease;
+  }
+  
+  .gal-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .right-panel {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #fffafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .chat-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 0 20px rgba(255,105,180,0.15);
+    animation: fadeIn 1s ease;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #ff69b4;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  input[type="file"] {
+    background-color: #fff0f5;
+    border: 1px solid #ffc0cb;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff4f9e;
+  }
+  
+  .chat-log {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+  
+  .chat-bubble {
+    max-width: 75%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    margin: 10px 0;
+    word-wrap: break-word;
+    line-height: 1.6;
+    position: relative;
+    animation: slideIn 0.5s ease;
+  }
+  
+  .chat-bubble.user {
+    background-color: #d1ecf1;
+    align-self: flex-end;
+    text-align: right;
+    border-top-right-radius: 0;
+  }
+  
+  .chat-bubble.gal {
+    background-color: #ffb6c1;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    color: #333;
+  }
+  
+  .chat-bubble.loading {
+    font-style: italic;
+    color: #777;
+  }
+  
+  /* カテゴリ別バブル */
+  .chat-bubble.summary {
+    background-color: #ffe6f2;
+  }
+  
+  .chat-bubble.keywords {
+    background-color: #e0f7fa;
+  }
+  
+  .chat-bubble.questions {
+    background-color: #fff9c4;
+  }
+  
+  .gal.thought {
+    background-color: #ffe5f0;
+    border-left: 5px solid #ff69b4;
+  }
+  .gal.observation {
+    background-color: #e0f7fa;
+    border-left: 5px solid #00acc1;
+  }
+  .gal.final {
+    background-color: #f9fbe7;
+    border-left: 5px solid #cddc39;
+  }
+  
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  /* チャット入力フォーム全体（横並び） */
+.chat-input-form {
+  /*position: sticky;*/
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  align-items: center;
+  background: #fff0f8;
+  border: 2px solid #ffb6c1;
+  border-radius: 25px;
+  padding: 10px 15px;
+}
+
+/* 入力欄 */
+.chat-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  outline: none;
+}
+
+/* 送信ボタン */
+.chat-submit {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-submit:hover {
+  background-color: #ff4f9e;
+}
+
+/* タブ切り替え部分 */
+.tab-bar {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffcafc;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #ff69b4;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 練習問題スタイル */
+.question-box {
+  background-color: #fff0fb;
+  border: 2px solid #ffaadd;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.question-text {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.answer-text {
+  display: none;
+  margin-top: 8px;
+}
+
+.show-answer-btn {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
